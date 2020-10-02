@@ -12,10 +12,13 @@ class CreateDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     }
     
+    @IBAction func backMainController(){
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
