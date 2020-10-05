@@ -17,9 +17,12 @@
 		D10A91F02525993600D72315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10A91EE2525993600D72315 /* LaunchScreen.storyboard */; };
 		D10A91FB2525993700D72315 /* OriginalAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A91FA2525993700D72315 /* OriginalAppTests.swift */; };
 		D10A92062525993700D72315 /* OriginalAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A92052525993700D72315 /* OriginalAppUITests.swift */; };
+		D150C104252A9B2D00B7D0D6 /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */; };
+		D150C106252AA5DF00B7D0D6 /* VariableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D150C105252AA5DF00B7D0D6 /* VariableData.swift */; };
 		D158E9652525A02A00CD840E /* WriteDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9642525A02A00CD840E /* WriteDataViewController.swift */; };
 		D158E9672525A53200CD840E /* CreateDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9662525A53200CD840E /* CreateDataViewController.swift */; };
 		D158E9692525AA5200CD840E /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9682525AA5200CD840E /* CustomPresentationController.swift */; };
+		D1FB97FB252B038E003CEBC3 /* RealmServive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FB97FA252B038E003CEBC3 /* RealmServive.swift */; };
 		D20873E8EA4FD1C137795445 /* Pods_OriginalApp_OriginalAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367BFBF4302F0841DFC98A0D /* Pods_OriginalApp_OriginalAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,9 +66,12 @@
 		D10A92012525993700D72315 /* OriginalAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginalAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10A92052525993700D72315 /* OriginalAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalAppUITests.swift; sourceTree = "<group>"; };
 		D10A92072525993700D72315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
+		D150C105252AA5DF00B7D0D6 /* VariableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableData.swift; sourceTree = "<group>"; };
 		D158E9642525A02A00CD840E /* WriteDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteDataViewController.swift; sourceTree = "<group>"; };
 		D158E9662525A53200CD840E /* CreateDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDataViewController.swift; sourceTree = "<group>"; };
 		D158E9682525AA5200CD840E /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
+		D1FB97FA252B038E003CEBC3 /* RealmServive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServive.swift; sourceTree = "<group>"; };
 		EA26621C501FEA9C8AED816F /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				D10A91E32525993100D72315 /* AppDelegate.swift */,
+				D150C105252AA5DF00B7D0D6 /* VariableData.swift */,
 				D10A91E52525993100D72315 /* SceneDelegate.swift */,
 				D10A91E72525993100D72315 /* ViewController.swift */,
 				D10A91E92525993100D72315 /* Main.storyboard */,
@@ -155,6 +162,8 @@
 				D158E9642525A02A00CD840E /* WriteDataViewController.swift */,
 				D158E9662525A53200CD840E /* CreateDataViewController.swift */,
 				D158E9682525AA5200CD840E /* CustomPresentationController.swift */,
+				D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */,
+				D1FB97FA252B038E003CEBC3 /* RealmServive.swift */,
 			);
 			path = OriginalApp;
 			sourceTree = "<group>";
@@ -417,11 +426,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10A91E82525993100D72315 /* ViewController.swift in Sources */,
+				D1FB97FB252B038E003CEBC3 /* RealmServive.swift in Sources */,
+				D150C104252A9B2D00B7D0D6 /* ObjectTableViewCell.swift in Sources */,
 				D10A91E42525993100D72315 /* AppDelegate.swift in Sources */,
 				D158E9692525AA5200CD840E /* CustomPresentationController.swift in Sources */,
 				D158E9652525A02A00CD840E /* WriteDataViewController.swift in Sources */,
 				D158E9672525A53200CD840E /* CreateDataViewController.swift in Sources */,
 				D10A91E62525993100D72315 /* SceneDelegate.swift in Sources */,
+				D150C106252AA5DF00B7D0D6 /* VariableData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
