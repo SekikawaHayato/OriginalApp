@@ -9,7 +9,6 @@
 //import Foundation
 import RealmSwift
 
-
 @objcMembers class VariableData: Object {
 
     // 名前
@@ -17,10 +16,11 @@ import RealmSwift
     
     // 中身
     dynamic var VariableValue = ""
-//    let VariableList = List<VariableData>()
+    
+    let VariableList = List<VariableData>()
     
     // 型を識別する
-    dynamic var MoldNameValue = ""
+    @objc private dynamic var MoldNameValue = ""
     var mold : MoldName{
         get{return MoldName(rawValue: MoldNameValue) ?? .undefind}
         set{MoldNameValue = newValue.rawValue}

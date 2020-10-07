@@ -7,19 +7,38 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CreateDataViewController: UIViewController {
 
+    var realmService: RealmService!
+    var hierarchy: String!
+    var parentObject: VariableData!
+    
     override func viewDidLoad() {
+        realmService = RealmService.shared
+        
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     }
     
     @IBAction func backMainController(){
-        dismiss(animated: true, completion: nil)
+        back()
+    }
+    
+    @IBAction func createObject(){
+        let variableData = VariableData()
+        variableData.VariableName = "newObject"
+        variableData.mold = .STRING
+        variableData.VariableValue = "newObject"
+        back()
     }
 
+    func back(){
+              dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
