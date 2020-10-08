@@ -1,58 +1,54 @@
 //
-//  CreateDataViewController.swift
+//  CreateFileViewController.swift
 //  OriginalApp
 //
-//  Created by 関川隼人 on 2020/10/01.
+//  Created by 関川隼人 on 2020/10/08.
 //  Copyright © 2020 関川隼人. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class CreateDataViewController: UIViewController {
+class CreateFileViewController: UIViewController {
     
     var realmService: RealmService!
-    var hierarchy: String!
-    var parentObject: VariableData!
+    @IBOutlet var fileNameTextField: UITextField!
     
     override func viewDidLoad() {
         realmService = RealmService.shared
         
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        view.backgroundColor = UIColor(red: 0, green: 0 ,blue: 0, alpha: 0.7)
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func backMainController(){
         back()
     }
     
-    @IBAction func createObject(){
-        if hierarchy == "Top"{
+    @IBAction func createFileButton(){
+        if fileNameTextField.text != "" {
             let variableDataGroup = VariableDataGroup()
-            variableDataGroup.fileName = "newFile"
+            variableDataGroup.fileName = fileNameTextField.text!
             let variableData = VariableData()
             variableData.variableName = "newObject"
             variableData.mold = .STRING
-            variableData.variableValue = "newObject"
             variableDataGroup.variableData.append(variableData)
             realmService.create(variableDataGroup)
-        }else if hierarchy == "During"{
-            
+
+            updateViewController()
+            back()
         }
-        updateViewController()
-        back()
     }
     
     func back(){
-        dismiss(animated: true ,completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func updateViewController(){
         let parentVC = self.presentingViewController as! ViewController
         parentVC.updateView()
     }
-    
     /*
      // MARK: - Navigation
      

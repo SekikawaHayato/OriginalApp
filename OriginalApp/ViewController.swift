@@ -9,37 +9,13 @@
 import UIKit
 import RealmSwift
 
-struct Stack<Element: Equatable>:Equatable{
-    private var internalStrage:[Element] = []
-    var isEmpty: Bool{
-        return peek() == nil
-    }
-
-    init(){}
-    init(_ elements:[Element]){
-        self.internalStrage = elements
-    }
-
-    mutating func push(_ element: Element){
-        self.internalStrage.append(element)
-    }
-
-    @discardableResult
-    mutating func pop() -> Element?{
-        return self.internalStrage.popLast()
-    }
-
-    func peek() -> Element?{
-        return self.internalStrage.last
-    }
-}
 
 class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegate{
     
     var realmService: RealmService!
     var results: Results<VariableDataGroup>!
     // Index番号を保存しておく？
-    static var stack: Stack<Int>!
+    static var stackIndex: StackIndex!
     
     @IBOutlet var table: UITableView!
     //ファイルの書き出しなどを管理
@@ -58,15 +34,16 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         table.rowHeight = 100
         
         realmService = RealmService.shared
+        ViewController.stackIndex = StackIndex.shared
         
         if realmService.count(VariableDataGroup.self) == 0{
             let firstData = VariableDataGroup()
             firstData.fileName = "sample"
             let variableData = VariableData()
-            variableData.VariableName = "data01"
+            variableData.variableName = "data01"
             variableData.mold = .STRING
-            variableData.VariableValue = "sample"
-            firstData.VariableData.append(variableData)
+            variableData.variableValue = "sample"
+            firstData.variableData.append(variableData)
             realmService.create(firstData)
         }
         
@@ -77,14 +54,32 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         //realmService.deleteAll(VariableDataGroup.self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        presentingViewController?.beginAppearanceTransition(false, animated: animated)
+        super.viewWillAppear(animated)
+                print("apper")
+    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("Layout")
+    }
+    
     @IBAction func button(_ sender: Any) {
-        performSegue(withIdentifier: "ModalSegue", sender: nil)
+        if ViewController.stackIndex.peek() == nil{
+            performSegue(withIdentifier: "CreateFileSegue", sender: nil)
+        }else{
+        performSegue(withIdentifier: "CreateDataSegue", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ModalSegue" {
+        if segue.identifier == "CreateDataSegue" {
             let nextVC = segue.destination as! CreateDataViewController
-            if ViewController.stack.peek()==nil{
+            if ViewController.stackIndex.peek()==nil{
                nextVC.hierarchy = "Top"
             }else{
                 nextVC.hierarchy = "During"
@@ -121,13 +116,6 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectTableViewCell") as! ObjectTableViewCell
         cell.contentTextLabel.text = results[indexPath.row].fileName
-        print(results[indexPath.row].fileName)
-        //条件分岐
-        //        if results[indexPath.row].mold.rawValue == ""{
-        //            //cell.moldImageView.image = UIImage(named: "")
-        //        }else{
-        //            //cell.moldImageView.image = UIImage(named: "")
-        //        }
         return cell
     }
     
@@ -137,5 +125,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         //        }
     }
     
-    
+    func updateView(){
+        table.reloadData()
+    }
 }

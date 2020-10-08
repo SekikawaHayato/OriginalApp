@@ -12,21 +12,21 @@ import RealmSwift
 @objcMembers class VariableData: Object {
 
     // 名前
-    dynamic var VariableName = ""
+    dynamic var variableName = ""
     
     // 中身
-    dynamic var VariableValue = ""
+    dynamic var variableValue = ""
     
-    let VariableList = List<VariableData>()
+    let variableList = List<VariableData>()
     
     // 型を識別する
-    @objc private dynamic var MoldNameValue = ""
-    var mold : MoldName{
-        get{return MoldName(rawValue: MoldNameValue) ?? .undefind}
-        set{MoldNameValue = newValue.rawValue}
+    @objc private dynamic var moldNameValue = ""
+    var mold : moldName{
+        get{return moldName(rawValue: moldNameValue) ?? .undefind}
+        set{moldNameValue = newValue.rawValue}
     }
     
-    enum MoldName: String{
+    enum moldName: String{
         case INT
         case STRING
         case FLOAT
@@ -35,21 +35,20 @@ import RealmSwift
         case undefind
     }
     
-    convenience init(VariableName: String,VariableValue: String,MoldNameValue: String){
+    convenience init(variableName: String,variableValue: String,moldNameValue: String){
         self.init()
-        self.VariableName = VariableName
-        self.VariableValue = VariableValue
-        self.MoldNameValue = MoldNameValue
+        self.variableName = variableName
+        self.variableValue = variableValue
+        self.moldNameValue = moldNameValue
     }
 }
 
 @objcMembers class VariableDataGroup: Object{
     dynamic var fileName = ""
-    var VariableData = List<VariableData>()
+    var variableData = List<VariableData>()
     
     convenience init(fileName: String){
         self.init()
         self.fileName = fileName
     }
-    
 }

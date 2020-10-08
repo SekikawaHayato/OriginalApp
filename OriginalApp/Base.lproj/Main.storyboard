@@ -76,13 +76,14 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="nkB-Xq-RMd" id="DUD-a8-Lp2"/>
-                        <segue destination="3uZ-Ia-gkw" kind="modal" identifier="ModalSegue" id="kHb-8U-0dY"/>
+                        <segue destination="3uZ-Ia-gkw" kind="modal" identifier="CreateDataSegue" id="kHb-8U-0dY"/>
                         <segue destination="cwp-Pr-TxM" kind="presentation" identifier="WriteData" id="KCA-zS-9Vh"/>
+                        <segue destination="XG5-7K-kZM" kind="modal" identifier="CreateFileSegue" id="ZQw-qu-eXw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="49" y="107"/>
+            <point key="canvasLocation" x="194" y="55"/>
         </scene>
         <!--Create Data View Controller-->
         <scene sceneID="Vf0-PD-pS0">
@@ -103,6 +104,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96620899438858032" green="0.38365358099751451" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="オブジェクト"/>
+                                <connections>
+                                    <action selector="createObject" destination="3uZ-Ia-gkw" eventType="touchUpInside" id="mhc-3s-zAX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFM-cN-vC0">
                                 <rect key="frame" x="16" y="549" width="79" height="57"/>
@@ -123,7 +127,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYk-eH-i2V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="107"/>
+            <point key="canvasLocation" x="1252" y="100"/>
+        </scene>
+        <!--Create File View Controller-->
+        <scene sceneID="w7Q-8L-GTd">
+            <objects>
+                <viewController id="XG5-7K-kZM" customClass="CreateFileViewController" customModule="OriginalApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oRf-LF-lVr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxk-q0-lwa">
+                                <rect key="frame" x="16" y="551" width="79" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.068072470930000004" green="0.19419289510000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.94818453999999996" green="1" blue="0.98554040210000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="backMainController" destination="XG5-7K-kZM" eventType="touchUpInside" id="0e7-y4-8hg"/>
+                                    <action selector="backMainController" destination="3uZ-Ia-gkw" eventType="touchUpInside" id="nDQ-ZP-809"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FileName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lPn-7h-shr">
+                                <rect key="frame" x="89" y="93" width="197" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yul-fe-8cb">
+                                <rect key="frame" x="121" y="190" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96620899439999997" green="0.38365358100000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="ファイル作成"/>
+                                <connections>
+                                    <action selector="createFileButton" destination="XG5-7K-kZM" eventType="touchUpInside" id="ja7-dR-Htw"/>
+                                    <action selector="createObject" destination="3uZ-Ia-gkw" eventType="touchUpInside" id="DxW-Wu-S4E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vdd-E0-69C"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="SUq-uO-8yy"/>
+                    <connections>
+                        <outlet property="fileNameTextField" destination="lPn-7h-shr" id="iIC-OE-AHa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="He9-DN-Duh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1261.5999999999999" y="814.54272863568224"/>
         </scene>
         <!--Write Data View Controller-->
         <scene sceneID="V3w-KN-LsH">
@@ -139,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VvX-Vy-b3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873" y="-600"/>
+            <point key="canvasLocation" x="1252" y="-605"/>
         </scene>
     </scenes>
 </document>
