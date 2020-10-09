@@ -10,14 +10,14 @@
 import RealmSwift
 
 @objcMembers class VariableData: Object {
-
+    
     // 名前
     dynamic var variableName = ""
     
     // 中身
     dynamic var variableValue = ""
     
-    let variableList = List<VariableData>()
+    let variableDataList = List<VariableData>()
     
     // 型を識別する
     @objc private dynamic var moldNameValue = ""
@@ -45,7 +45,7 @@ import RealmSwift
 
 @objcMembers class VariableDataGroup: Object{
     dynamic var fileName = ""
-    var variableData = List<VariableData>()
+    var variableDataList = List<VariableData>()
     
     convenience init(fileName: String){
         self.init()

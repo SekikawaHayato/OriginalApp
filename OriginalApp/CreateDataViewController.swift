@@ -35,7 +35,7 @@ class CreateDataViewController: UIViewController {
             variableData.variableName = "newObject"
             variableData.mold = .STRING
             variableData.variableValue = "newObject"
-            variableDataGroup.variableData.append(variableData)
+            variableDataGroup.variableDataList.append(variableData)
             realmService.create(variableDataGroup)
         }else if hierarchy == "During"{
             

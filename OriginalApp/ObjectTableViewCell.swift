@@ -9,7 +9,7 @@
 import UIKit
 
 class ObjectTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var moldImageView: UIImageView!
     @IBOutlet weak var contentTextLabel:UILabel!
     

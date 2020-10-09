@@ -33,9 +33,9 @@ class CreateFileViewController: UIViewController {
             let variableData = VariableData()
             variableData.variableName = "newObject"
             variableData.mold = .STRING
-            variableDataGroup.variableData.append(variableData)
+            variableDataGroup.variableDataList.append(variableData)
             realmService.create(variableDataGroup)
-
+            
             updateViewController()
             back()
         }

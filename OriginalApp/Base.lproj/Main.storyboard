@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="194" y="55"/>
+            <point key="canvasLocation" x="180" y="99"/>
         </scene>
         <!--Create Data View Controller-->
         <scene sceneID="Vf0-PD-pS0">
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="He9-DN-Duh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.5999999999999" y="814.54272863568224"/>
+            <point key="canvasLocation" x="1252" y="867"/>
         </scene>
         <!--Write Data View Controller-->
         <scene sceneID="V3w-KN-LsH">
@@ -193,7 +193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VvX-Vy-b3t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="-605"/>
+            <point key="canvasLocation" x="1252" y="-626"/>
         </scene>
     </scenes>
 </document>
