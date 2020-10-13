@@ -36,6 +36,55 @@ class RealmService {
         }
     }
     
+    func updateParentList(_ object: VariableDataGroup,_ addObject: VariableData){
+        try! realm.write{
+            object.variableDataList.append(addObject)
+        }
+    }
+    func updateTopData(_ object: VariableDataGroup,_ addText: String){
+        try! realm.write{
+            object.fileName = addText
+        }
+    }
+    func updateDuringList(_ object: VariableData,_ addObject: VariableData){
+        try! realm.write{
+            object.variableDataList.append(addObject)
+        }
+    }
+    func updateObjectData(_ object: VariableData,_ addText: String){
+        try! realm.write{
+            object.variableName = addText
+        }
+    }
+    
+    func updateVariableData(_ object: VariableData,_ nameText: String,_ moldText: String,_ valueText: String){
+        try! realm.write{
+            object.variableName = nameText
+            switch moldText{
+            case "INT":
+                object.mold = .INT
+                break
+            case "STRING":
+                object.mold = .STRING
+                break
+            case "FLOAT":
+                object.mold = .FLOAT
+                break
+            case "ARRAY":
+                object.mold = .ARRAY
+                break
+            default:
+                break
+            }
+            object.variableValue = valueText
+        }
+    }
+    
+    //    func updateData(_ object: VariableData,value: VariableData){
+    //        try! realm.write() {
+    //        }
+    //    }
+    //
     func delete<T: Object>(_ object: T) {
         do {
             try realm.write {

@@ -17,6 +17,7 @@
 		D10A91F02525993600D72315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10A91EE2525993600D72315 /* LaunchScreen.storyboard */; };
 		D10A91FB2525993700D72315 /* OriginalAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A91FA2525993700D72315 /* OriginalAppTests.swift */; };
 		D10A92062525993700D72315 /* OriginalAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10A92052525993700D72315 /* OriginalAppUITests.swift */; };
+		D11DFB712535956800E02E16 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11DFB702535956800E02E16 /* ShareViewController.swift */; };
 		D127C805252EBBB50023D9F7 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D127C804252EBBB50023D9F7 /* Stack.swift */; };
 		D150C104252A9B2D00B7D0D6 /* ObjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */; };
 		D150C106252AA5DF00B7D0D6 /* VariableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D150C105252AA5DF00B7D0D6 /* VariableData.swift */; };
@@ -24,6 +25,7 @@
 		D158E9672525A53200CD840E /* CreateDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9662525A53200CD840E /* CreateDataViewController.swift */; };
 		D158E9692525AA5200CD840E /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9682525AA5200CD840E /* CustomPresentationController.swift */; };
 		D168F9FD252ECC29006E2271 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */; };
+		D193778225328B43005FEC86 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D193778125328B43005FEC86 /* bg.jpg */; };
 		D1FB97FB252B038E003CEBC3 /* RealmServive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FB97FA252B038E003CEBC3 /* RealmServive.swift */; };
 		D20873E8EA4FD1C137795445 /* Pods_OriginalApp_OriginalAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367BFBF4302F0841DFC98A0D /* Pods_OriginalApp_OriginalAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,7 @@
 		D10A92012525993700D72315 /* OriginalAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OriginalAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10A92052525993700D72315 /* OriginalAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalAppUITests.swift; sourceTree = "<group>"; };
 		D10A92072525993700D72315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D11DFB702535956800E02E16 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		D127C804252EBBB50023D9F7 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTableViewCell.swift; sourceTree = "<group>"; };
 		D150C105252AA5DF00B7D0D6 /* VariableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableData.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		D158E9662525A53200CD840E /* CreateDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDataViewController.swift; sourceTree = "<group>"; };
 		D158E9682525AA5200CD840E /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
+		D193778125328B43005FEC86 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		D1FB97FA252B038E003CEBC3 /* RealmServive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServive.swift; sourceTree = "<group>"; };
 		EA26621C501FEA9C8AED816F /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,17 +163,19 @@
 				D150C105252AA5DF00B7D0D6 /* VariableData.swift */,
 				D10A91E52525993100D72315 /* SceneDelegate.swift */,
 				D10A91E72525993100D72315 /* ViewController.swift */,
-				D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */,
 				D10A91E92525993100D72315 /* Main.storyboard */,
 				D10A91EC2525993600D72315 /* Assets.xcassets */,
 				D10A91EE2525993600D72315 /* LaunchScreen.storyboard */,
+				D193778125328B43005FEC86 /* bg.jpg */,
 				D10A91F12525993600D72315 /* Info.plist */,
 				D158E9642525A02A00CD840E /* WriteDataViewController.swift */,
 				D158E9662525A53200CD840E /* CreateDataViewController.swift */,
+				D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */,
 				D158E9682525AA5200CD840E /* CustomPresentationController.swift */,
 				D150C103252A9B2D00B7D0D6 /* ObjectTableViewCell.swift */,
 				D1FB97FA252B038E003CEBC3 /* RealmServive.swift */,
 				D127C804252EBBB50023D9F7 /* Stack.swift */,
+				D11DFB702535956800E02E16 /* ShareViewController.swift */,
 			);
 			path = OriginalApp;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 			files = (
 				D10A91F02525993600D72315 /* LaunchScreen.storyboard in Resources */,
 				D10A91ED2525993600D72315 /* Assets.xcassets in Resources */,
+				D193778225328B43005FEC86 /* bg.jpg in Resources */,
 				D10A91EB2525993100D72315 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +444,7 @@
 				D150C104252A9B2D00B7D0D6 /* ObjectTableViewCell.swift in Sources */,
 				D10A91E42525993100D72315 /* AppDelegate.swift in Sources */,
 				D158E9692525AA5200CD840E /* CustomPresentationController.swift in Sources */,
+				D11DFB712535956800E02E16 /* ShareViewController.swift in Sources */,
 				D158E9652525A02A00CD840E /* WriteDataViewController.swift in Sources */,
 				D127C805252EBBB50023D9F7 /* Stack.swift in Sources */,
 				D158E9672525A53200CD840E /* CreateDataViewController.swift in Sources */,

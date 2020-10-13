@@ -14,6 +14,14 @@ class CreateDataViewController: UIViewController {
     var realmService: RealmService!
     var hierarchy: String!
     var parentObject: VariableData!
+    var topParentObject: VariableDataGroup!
+    
+    var createVariableType: String!
+    
+    @IBOutlet var objectButton: UIButton!
+    @IBOutlet var dataButton: UIButton!
+    @IBOutlet var createButton: UIButton!
+    @IBOutlet var inputTextField: UITextField!
     
     override func viewDidLoad() {
         realmService = RealmService.shared
@@ -28,20 +36,48 @@ class CreateDataViewController: UIViewController {
     }
     
     @IBAction func createObject(){
-        if hierarchy == "Top"{
-            let variableDataGroup = VariableDataGroup()
-            variableDataGroup.fileName = "newFile"
-            let variableData = VariableData()
-            variableData.variableName = "newObject"
-            variableData.mold = .STRING
-            variableData.variableValue = "newObject"
-            variableDataGroup.variableDataList.append(variableData)
-            realmService.create(variableDataGroup)
-        }else if hierarchy == "During"{
+        changeInputUI()
+        createVariableType = "Object"
+    }
+    
+    @IBAction func createData(){
+        changeInputUI()
+        createVariableType = "Data"
+    }
+    
+    @IBAction func createFile(){
+        let variableData = VariableData()
+        variableData.variableName = inputTextField.text!
+        if createVariableType == "Object"{
+            variableData.mold = .OBJECT
             
+            let childData = VariableData()
+            childData.variableName = "newData"
+            childData.mold = .STRING
+            
+            variableData.variableDataList.append(childData)
+        }else if createVariableType == "Data"{
+            variableData.mold = .STRING
+            variableData.variableValue = "newData"
+        }
+        
+        if hierarchy == "Top"{
+            realmService.updateParentList(topParentObject, variableData)
+            // topParentObject.variableDataList.append(variableData)
+        }else{
+            realmService.updateDuringList(parentObject, variableData)
+            //parentObject.variableDataList.append(variableData)
+            //realmService.create()
         }
         updateViewController()
         back()
+    }
+    
+    func changeInputUI(){
+        objectButton.isHidden = true
+        dataButton.isHidden = true
+        createButton.isHidden = false
+        inputTextField.isHidden = false
     }
     
     func back(){

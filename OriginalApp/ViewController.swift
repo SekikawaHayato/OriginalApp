@@ -15,17 +15,22 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     var realmService: RealmService!
     var showVariableDataGroup: Results<VariableDataGroup>!
     var showVariableData: List<VariableData>!
+    var topParentObject: VariableDataGroup!
+    var parentObject: VariableData!
+    
+    var topWriteObject: VariableDataGroup!
+    var writeObject: VariableData!
+    
+    var mode: String!
+    
+    var parentDataType: String!
     // Index番号を保存しておく？
     static var stackIndex: StackIndex!
     // 一旦一番最初に戻る実装にする
     static var isTop: Bool!
     
     @IBOutlet var table: UITableView!
-    //ファイルの書き出しなどを管理
-    let dir = FileManager.default.urls(
-        for: .documentDirectory,
-        in: .userDomainMask
-    ).first!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +40,11 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         table.delegate = self
         
         table.rowHeight = 100
+        
         ViewController.isTop = true
         
         realmService = RealmService.shared
-        ViewController.stackIndex = StackIndex.shared
+        //ViewController.stackIndex = StackIndex.shared
         
         if realmService.count(VariableDataGroup.self) == 0{
             let firstData = VariableDataGroup()
@@ -55,6 +61,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         
         showVariableDataGroup = realmService.resultGroup()
         
+        mode = "Move"
         //realmService.deleteAll(VariableDataGroup.self)
     }
     
@@ -72,7 +79,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         print("Layout")
     }
     
-    @IBAction func button(_ sender: Any) {
+    @IBAction func createButton(_ sender: Any) {
         //if ViewController.stackIndex.peek() == nil{
         if ViewController.isTop == true{
             performSegue(withIdentifier: "CreateFileSegue", sender: nil)
@@ -80,40 +87,47 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
             performSegue(withIdentifier: "CreateDataSegue", sender: nil)
         }
     }
+    @IBAction func changeModeButton(){
+        if mode == "Write"{
+            mode = "Move"
+        } else{
+            mode = "Write"
+        }
+    }
+    
+    @IBAction func moveTopButton(){
+        ViewController.isTop = true
+        updateView()
+    }
+    
+    @IBAction func ShareButton(){
+        performSegue(withIdentifier: "ShareSegue",sender: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateDataSegue" {
             let nextVC = segue.destination as! CreateDataViewController
             //if ViewController.stackIndex.peek()==nil{
-            if ViewController.isTop == true{
+            if parentDataType == "Top"{
                 nextVC.hierarchy = "Top"
+                nextVC.topParentObject = topParentObject
             }else{
                 nextVC.hierarchy = "During"
-                
+                nextVC.parentObject = parentObject
+            }
+        }else if segue.identifier == "WriteDataSegue"{
+            let nextVC = segue.destination as! WriteDataViewController
+            
+            if ViewController.isTop == true{
+                nextVC.type = "Top"
+                nextVC.dataGroup = topWriteObject
+            }else{
+                nextVC.type = "During"
+                nextVC.data = writeObject
             }
         }
     }
-    // ファイルの書き出し / 上書き保存
-    func createFile(fileName: String,text: String){
-        // ファイルURLを作成
-        let fileUrl = dir.appendingPathComponent(fileName + ".json")
-        // ファイルが存在するならば
-        if FileManager.default.fileExists(atPath: fileUrl.path) {
-            // ファイルの上書き
-            do {
-                try text.write(to: fileUrl, atomically: false, encoding: .utf8)
-            } catch {
-                print("Error: \(error)")
-            }
-        }else{
-            // 新しいファイルを作成
-            FileManager.default.createFile(
-                atPath: fileUrl.path,
-                contents: text.data(using: .utf8),
-                attributes: nil
-            )
-        }
-    }
+    
     
     // テーブルのセル数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -132,21 +146,36 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         }else{
             cell.contentTextLabel.text = showVariableData[indexPath.row].variableName
         }
+        cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return cell
     }
     
     // セルが押された時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        //ViewController.stackIndex.push(indexPath.row)
-        print(indexPath.row)
-        if ViewController.isTop == true{
-            ViewController.isTop = false
-            showVariableData = showVariableDataGroup[indexPath.row].variableDataList
-            updateView()
-        }else if showVariableData[indexPath.row].mold.rawValue == "OBJECT"{
-            showVariableData = showVariableData[indexPath.row].variableDataList
-        }else{
-            
+        if mode == "Move"{
+            if ViewController.isTop == true{
+                ViewController.isTop = false
+                parentDataType = "Top"
+                topParentObject = showVariableDataGroup[indexPath.row]
+                showVariableData = showVariableDataGroup[indexPath.row].variableDataList
+                updateView()
+            }else{
+                if showVariableData[indexPath.row].mold.rawValue == "OBJECT"{
+                    parentDataType = "During"
+                    parentObject = showVariableData[indexPath.row]
+                    showVariableData = showVariableData[indexPath.row].variableDataList
+                    updateView()
+                }else{
+                    table.deselectRow(at: indexPath, animated: true)
+                }
+            }
+        }else if mode == "Write"{
+            if ViewController.isTop == true{
+                topWriteObject = showVariableDataGroup[indexPath.row]
+            }else {
+                writeObject = showVariableData[indexPath.row]
+            }
+            performSegue(withIdentifier: "WriteDataSegue", sender: nil)
         }
     }
     
