@@ -47,7 +47,7 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         if FileManager.default.fileExists(atPath: fileUrl.path) {
             // ファイルの上書き
             do {
-                try text.write(to: fileUrl, atomically: false, encoding: .utf8)
+                try text.write(to: fileUrl, atomically: false, encoding: String.Encoding.utf8)
             } catch {
                 print("Error: \(error)")
             }
@@ -55,13 +55,19 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
             // 新しいファイルを作成
             FileManager.default.createFile(
                 atPath: fileUrl.path,
-                contents: text.data(using: .utf8),
+                contents: text.data(using: String.Encoding.utf8),
                 attributes: nil
             )
             print(fileUrl.path)
         }
+        sendFile(fileURL: fileUrl,text: fileName)
     }
     
+    func sendFile(fileURL: URL,text: String) {
+        //        let image = UIImage(named: "item.png")!
+        let activityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
     // テーブルのセル数を指定する
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return result.count
@@ -82,20 +88,59 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         // 後でアラート追加したい
         back()
     }
-
+    
     func createText(_ object: VariableDataGroup) -> String{
-        
-        return "{\"aaa\": \"abc\",\"bbb\": \"150\"}"
+        var objectArray = Array<VariableData>() // Array型
+        objectArray.append(contentsOf: Array(object.variableDataList)) // Array()でListを変換
+        var jsonText = "{"
+        for (i,object) in objectArray.enumerated(){
+            jsonText += "\"\(object.variableName)\":"
+            switch object.mold.rawValue{
+            case "INT":
+                jsonText += object.variableValue
+            case "FLOAT":
+                jsonText += object.variableValue
+            case "STRING":
+                jsonText += "\"\(object.variableValue)\""
+            case "OBJECT":
+                jsonText += addText(object)
+            default:
+                break;
+            }
+            if i != objectArray.count - 1{
+                jsonText += ","
+            }
+        }
+        jsonText += "}"
+        return jsonText
     }
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
+    
+    func addText(_ object: VariableData) -> String{
+        var objectArray = Array<VariableData>() // Array型
+        objectArray.append(contentsOf: Array(object.variableDataList)) // Array()でListを変換
+        var addText = "{"
+        for (i,object) in objectArray.enumerated(){
+            addText += "\"\(object.variableName)\":"
+            switch object.mold.rawValue{
+            case "INT":
+                addText += object.variableValue
+            case "FLOAT":
+                addText += object.variableValue
+            case "STRING":
+                addText += "\"\(object.variableValue)\""
+            case "OBJECT":
+                addText += self.addText(object)
+            default:
+                break;
+            }
+            if i != objectArray.count - 1{
+                addText += ","
+            }
+        }
+        addText += "}"
+        return addText
+    }
+    
     @IBAction func backMainController(){
         back()
     }
@@ -105,5 +150,5 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         let parentVC = self.presentingViewController as! ViewController
         parentVC.updateView()
     }
-
+    
 }

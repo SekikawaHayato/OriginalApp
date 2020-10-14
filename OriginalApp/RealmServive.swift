@@ -70,9 +70,8 @@ class RealmService {
             case "FLOAT":
                 object.mold = .FLOAT
                 break
-            case "ARRAY":
-                object.mold = .ARRAY
-                break
+//            case "ARRAY":
+//                object.mold = .ARRAY
             default:
                 break
             }

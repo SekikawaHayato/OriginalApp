@@ -31,7 +31,7 @@ import RealmSwift
         case STRING
         case FLOAT
         case OBJECT
-        case ARRAY
+        //case ARRAY
         case undefind
     }
     

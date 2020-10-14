@@ -22,9 +22,9 @@ class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerVi
     @IBOutlet var valueTextField: UITextField!
     
     var pickerView:UIPickerView = UIPickerView()
-    let idToShow: [String:String] = ["INT":"整数","STRING":"文字","FLOAT":"小数","ARRAY":"配列"]
-    let showToID:[String:String] = ["整数":"INT","文字":"STRING","小数":"FLOAT","配列":"ARRAY"]
-    let list = ["整数","小数","文字","配列"]
+    let idToShow: [String:String] = ["INT":"整数","STRING":"文字","FLOAT":"小数"]//,"ARRAY":"配列"]
+    let showToID:[String:String] = ["整数":"INT","文字":"STRING","小数":"FLOAT"]//,"配列":"ARRAY"]
+    let list = ["整数","小数","文字"]//,"配列"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

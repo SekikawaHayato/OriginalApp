@@ -26,6 +26,7 @@
 		D158E9692525AA5200CD840E /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158E9682525AA5200CD840E /* CustomPresentationController.swift */; };
 		D168F9FD252ECC29006E2271 /* CreateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */; };
 		D193778225328B43005FEC86 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D193778125328B43005FEC86 /* bg.jpg */; };
+		D1B806B42536D45300A9CC81 /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B806B32536D45300A9CC81 /* item.png */; };
 		D1FB97FB252B038E003CEBC3 /* RealmServive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FB97FA252B038E003CEBC3 /* RealmServive.swift */; };
 		D20873E8EA4FD1C137795445 /* Pods_OriginalApp_OriginalAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367BFBF4302F0841DFC98A0D /* Pods_OriginalApp_OriginalAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		D158E9682525AA5200CD840E /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		D168F9FC252ECC29006E2271 /* CreateFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFileViewController.swift; sourceTree = "<group>"; };
 		D193778125328B43005FEC86 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		D1B806B32536D45300A9CC81 /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
 		D1FB97FA252B038E003CEBC3 /* RealmServive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServive.swift; sourceTree = "<group>"; };
 		EA26621C501FEA9C8AED816F /* Pods-OriginalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp.debug.xcconfig"; path = "Target Support Files/Pods-OriginalApp/Pods-OriginalApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 				D10A91E72525993100D72315 /* ViewController.swift */,
 				D10A91E92525993100D72315 /* Main.storyboard */,
 				D10A91EC2525993600D72315 /* Assets.xcassets */,
+				D1B806B32536D45300A9CC81 /* item.png */,
 				D10A91EE2525993600D72315 /* LaunchScreen.storyboard */,
 				D193778125328B43005FEC86 /* bg.jpg */,
 				D10A91F12525993600D72315 /* Info.plist */,
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10A91F02525993600D72315 /* LaunchScreen.storyboard in Resources */,
+				D1B806B42536D45300A9CC81 /* item.png in Resources */,
 				D10A91ED2525993600D72315 /* Assets.xcassets in Resources */,
 				D193778225328B43005FEC86 /* bg.jpg in Resources */,
 				D10A91EB2525993100D72315 /* Main.storyboard in Resources */,
