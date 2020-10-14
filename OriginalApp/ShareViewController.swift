@@ -86,7 +86,7 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         let valueText = createText(result[indexPath.row])
         createFile(fileName: result[indexPath.row].fileName,text: valueText)
         // 後でアラート追加したい
-        back()
+        //back()
     }
     
     func createText(_ object: VariableDataGroup) -> String{

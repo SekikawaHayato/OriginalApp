@@ -30,6 +30,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     static var isTop: Bool!
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var modeImage: UIImageView!
 
     
     override func viewDidLoad() {
@@ -90,8 +91,10 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     @IBAction func changeModeButton(){
         if mode == "Write"{
             mode = "Move"
+            modeImage?.image = UIImage(named: "Idou.png")
         } else{
             mode = "Write"
+            modeImage?.image = UIImage(named: "Hensyu.png")
         }
     }
     
