@@ -40,7 +40,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         
         table.delegate = self
         
-        table.rowHeight = 100
+        table.rowHeight = 120
         
         ViewController.isTop = true
         
@@ -146,8 +146,14 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectTableViewCell") as! ObjectTableViewCell
         if ViewController.isTop == true{
             cell.contentTextLabel.text = showVariableDataGroup[indexPath.row].fileName
+            cell.moldImageView.image = UIImage(named:"Object.png")
         }else{
             cell.contentTextLabel.text = showVariableData[indexPath.row].variableName
+            if showVariableData[indexPath.row].mold == .OBJECT{
+                cell.moldImageView.image = UIImage(named: "Object.png")
+            }else{
+                cell.moldImageView.image = UIImage(named: "Variable.png")
+            }
         }
         cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return cell

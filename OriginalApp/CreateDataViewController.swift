@@ -46,6 +46,7 @@ class CreateDataViewController: UIViewController {
     }
     
     @IBAction func createFile(){
+        if inputTextField.text != ""{
         let variableData = VariableData()
         variableData.variableName = inputTextField.text!
         if createVariableType == "Object"{
@@ -71,6 +72,7 @@ class CreateDataViewController: UIViewController {
         }
         updateViewController()
         back()
+        }
     }
     
     func changeInputUI(){
