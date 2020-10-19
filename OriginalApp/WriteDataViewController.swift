@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerViewDataSource{
+class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerViewDataSource,UITextFieldDelegate{
     
     var type: String!
     var dataGroup: VariableDataGroup!
@@ -22,9 +22,9 @@ class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerVi
     @IBOutlet var valueTextField: UITextField!
     
     var pickerView:UIPickerView = UIPickerView()
-    let idToShow: [String:String] = ["INT":"整数","STRING":"文字","FLOAT":"小数"]//,"ARRAY":"配列"]
-    let showToID:[String:String] = ["整数":"INT","文字":"STRING","小数":"FLOAT"]//,"配列":"ARRAY"]
-    let list = ["整数","小数","文字"]//,"配列"]
+    let idToShow: [String:String] = ["STRING":"文字","FLOAT":"数字"]//,"ARRAY":"配列"]
+    let showToID:[String:String] = ["文字":"STRING","数字":"FLOAT"]//,"配列":"ARRAY"]
+    let list = ["数字","文字"]//,"配列"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,9 @@ class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerVi
         
         self.moldTextField.inputView = pickerView
         self.moldTextField.inputAccessoryView = toolbar
-        
+        nameTextField.delegate = self
+        moldTextField.delegate = self
+        valueTextField.delegate = self
         if type == "Top"{
             moldTextField.isHidden = true
             valueTextField.isHidden = true
@@ -130,6 +132,11 @@ class WriteDataViewController: UIViewController,UIPickerViewDelegate ,UIPickerVi
         dismiss(animated: true, completion: nil)
         let parentVC = self.presentingViewController as! ViewController
         parentVC.updateView()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
+        return true
     }
     
     /*

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateFileViewController: UIViewController {
+class CreateFileViewController: UIViewController ,UITextFieldDelegate{
     
     var realmService: RealmService!
     @IBOutlet var fileNameTextField: UITextField!
@@ -19,6 +19,7 @@ class CreateFileViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 0, green: 0 ,blue: 0, alpha: 0.7)
+        fileNameTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +49,11 @@ class CreateFileViewController: UIViewController {
     func updateViewController(){
         let parentVC = self.presentingViewController as! ViewController
         parentVC.updateView()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     /*
      // MARK: - Navigation

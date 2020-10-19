@@ -96,8 +96,6 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         for (i,object) in objectArray.enumerated(){
             jsonText += "\"\(object.variableName)\":"
             switch object.mold.rawValue{
-            case "INT":
-                jsonText += object.variableValue
             case "FLOAT":
                 jsonText += object.variableValue
             case "STRING":
@@ -122,8 +120,6 @@ class ShareViewController: UIViewController ,UITableViewDataSource,UITableViewDe
         for (i,object) in objectArray.enumerated(){
             addText += "\"\(object.variableName)\":"
             switch object.mold.rawValue{
-            case "INT":
-                addText += object.variableValue
             case "FLOAT":
                 addText += object.variableValue
             case "STRING":

@@ -33,6 +33,12 @@
 		D173BE40253761B700F38A0A /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = D173BE3F253761B700F38A0A /* Back.png */; };
 		D173BE42253763B500F38A0A /* ShareText.png in Resources */ = {isa = PBXBuildFile; fileRef = D173BE41253763B500F38A0A /* ShareText.png */; };
 		D173BE442537D15F00F38A0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D173BE432537D15F00F38A0A /* Images.xcassets */; };
+		D17706B7253A53B200E59EFF /* File.png in Resources */ = {isa = PBXBuildFile; fileRef = D17706B6253A53B200E59EFF /* File.png */; };
+		D17706BA253A571400E59EFF /* IdouButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D17706B8253A571300E59EFF /* IdouButton.png */; };
+		D17706BB253A571400E59EFF /* HensyuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D17706B9253A571400E59EFF /* HensyuButton.png */; };
+		D17A0AA32539BB6400CB1A12 /* Namae.png in Resources */ = {isa = PBXBuildFile; fileRef = D17A0AA12539BB6400CB1A12 /* Namae.png */; };
+		D17A0AA42539BB6400CB1A12 /* Nakami.png in Resources */ = {isa = PBXBuildFile; fileRef = D17A0AA22539BB6400CB1A12 /* Nakami.png */; };
+		D17A0AA62539BBC200CB1A12 /* AddHako.png in Resources */ = {isa = PBXBuildFile; fileRef = D17A0AA52539BBC200CB1A12 /* AddHako.png */; };
 		D1B806B42536D45300A9CC81 /* item.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B806B32536D45300A9CC81 /* item.png */; };
 		D1B806B82536E61300A9CC81 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B806B72536E61300A9CC81 /* bg.png */; };
 		D1B806BE2536F1CC00A9CC81 /* Hensyu.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B806B92536F1CB00A9CC81 /* Hensyu.png */; };
@@ -68,7 +74,7 @@
 		879082B61967C9D517019893 /* Pods-OriginalAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalAppTests.release.xcconfig"; path = "Target Support Files/Pods-OriginalAppTests/Pods-OriginalAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		986D1A5C8BAA710BA7C30F37 /* Pods_OriginalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDACAA541C98EA099C957A4F /* Pods-OriginalApp-OriginalAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalApp-OriginalAppUITests.release.xcconfig"; path = "Target Support Files/Pods-OriginalApp-OriginalAppUITests/Pods-OriginalApp-OriginalAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D10A91E02525993100D72315 /* OriginalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OriginalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10A91E02525993100D72315 /* JsonCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JsonCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10A91E32525993100D72315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D10A91E52525993100D72315 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D10A91E72525993100D72315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,12 @@
 		D173BE3F253761B700F38A0A /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
 		D173BE41253763B500F38A0A /* ShareText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShareText.png; sourceTree = "<group>"; };
 		D173BE432537D15F00F38A0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D17706B6253A53B200E59EFF /* File.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File.png; sourceTree = "<group>"; };
+		D17706B8253A571300E59EFF /* IdouButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IdouButton.png; sourceTree = "<group>"; };
+		D17706B9253A571400E59EFF /* HensyuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HensyuButton.png; sourceTree = "<group>"; };
+		D17A0AA12539BB6400CB1A12 /* Namae.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Namae.png; sourceTree = "<group>"; };
+		D17A0AA22539BB6400CB1A12 /* Nakami.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nakami.png; sourceTree = "<group>"; };
+		D17A0AA52539BBC200CB1A12 /* AddHako.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddHako.png; sourceTree = "<group>"; };
 		D1B806B32536D45300A9CC81 /* item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item.png; sourceTree = "<group>"; };
 		D1B806B72536E61300A9CC81 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		D1B806B92536F1CB00A9CC81 /* Hensyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hensyu.png; sourceTree = "<group>"; };
@@ -173,7 +185,7 @@
 		D10A91E12525993100D72315 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D10A91E02525993100D72315 /* OriginalApp.app */,
+				D10A91E02525993100D72315 /* JsonCreator.app */,
 				D10A91F62525993700D72315 /* OriginalAppTests.xctest */,
 				D10A92012525993700D72315 /* OriginalAppUITests.xctest */,
 			);
@@ -191,7 +203,13 @@
 				D173BE432537D15F00F38A0A /* Images.xcassets */,
 				D1B806B72536E61300A9CC81 /* bg.png */,
 				D173BE41253763B500F38A0A /* ShareText.png */,
+				D17706B6253A53B200E59EFF /* File.png */,
 				D1B806BB2536F1CC00A9CC81 /* Add.png */,
+				D17706B9253A571400E59EFF /* HensyuButton.png */,
+				D17706B8253A571300E59EFF /* IdouButton.png */,
+				D17A0AA22539BB6400CB1A12 /* Nakami.png */,
+				D17A0AA12539BB6400CB1A12 /* Namae.png */,
+				D17A0AA52539BBC200CB1A12 /* AddHako.png */,
 				D173BE3F253761B700F38A0A /* Back.png */,
 				D16A754F253741B000334163 /* Mode.png */,
 				D173BE36253742FC00F38A0A /* Mode.png */,
@@ -253,7 +271,7 @@
 			);
 			name = OriginalApp;
 			productName = OriginalApp;
-			productReference = D10A91E02525993100D72315 /* OriginalApp.app */;
+			productReference = D10A91E02525993100D72315 /* JsonCreator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D10A91F52525993700D72315 /* OriginalAppTests */ = {
@@ -347,7 +365,10 @@
 				D173BE3C253759C000F38A0A /* Variable.png in Resources */,
 				D16A7551253741B000334163 /* Mode.png in Resources */,
 				D173BE38253742FC00F38A0A /* Mode.png in Resources */,
+				D17A0AA62539BBC200CB1A12 /* AddHako.png in Resources */,
+				D17A0AA32539BB6400CB1A12 /* Namae.png in Resources */,
 				D1B806BF2536F1CC00A9CC81 /* Idou.png in Resources */,
+				D17706B7253A53B200E59EFF /* File.png in Resources */,
 				D1B806B82536E61300A9CC81 /* bg.png in Resources */,
 				D1B806BE2536F1CC00A9CC81 /* Hensyu.png in Resources */,
 				D173BE3A253750BB00F38A0A /* Share.png in Resources */,
@@ -356,7 +377,10 @@
 				D173BE442537D15F00F38A0A /* Images.xcassets in Resources */,
 				D1B806C02536F1CC00A9CC81 /* Add.png in Resources */,
 				D10A91F02525993600D72315 /* LaunchScreen.storyboard in Resources */,
+				D17A0AA42539BB6400CB1A12 /* Nakami.png in Resources */,
+				D17706BA253A571400E59EFF /* IdouButton.png in Resources */,
 				D173BE3E25375BA200F38A0A /* Object.png in Resources */,
+				D17706BB253A571400E59EFF /* HensyuButton.png in Resources */,
 				D1B806B42536D45300A9CC81 /* item.png in Resources */,
 				D10A91EB2525993100D72315 /* Main.storyboard in Resources */,
 			);
@@ -672,15 +696,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = B8P5ZPPZVW;
 				INFOPLIST_FILE = OriginalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = app.dump.JsonCreator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JsonCreator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -692,15 +717,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = B8P5ZPPZVW;
 				INFOPLIST_FILE = OriginalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = app.dump.JsonCreator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JsonCreator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

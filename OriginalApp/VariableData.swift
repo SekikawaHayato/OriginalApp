@@ -27,7 +27,7 @@ import RealmSwift
     }
     
     enum moldName: String{
-        case INT
+        //case INT
         case STRING
         case FLOAT
         case OBJECT

@@ -37,17 +37,17 @@ class StackIndex {
     
     private init(){}
     static let shared = StackIndex()
-    var stack = Stack<Int>()
+    var stack = Stack<VariableData>()
     
-    func push(_ add: Int){
+    func push(_ add: VariableData){
         stack.push(add)
     }
     
-    func pop() -> Int?{
+    func pop() -> VariableData?{
         return stack.pop()
     }
     
-    func peek() -> Int?{
+    func peek() -> VariableData?{
         return stack.peek()
     }
 }

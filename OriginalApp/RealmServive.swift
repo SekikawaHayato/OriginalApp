@@ -61,9 +61,6 @@ class RealmService {
         try! realm.write{
             object.variableName = nameText
             switch moldText{
-            case "INT":
-                object.mold = .INT
-                break
             case "STRING":
                 object.mold = .STRING
                 break

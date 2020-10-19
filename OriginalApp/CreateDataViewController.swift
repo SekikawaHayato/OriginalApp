@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CreateDataViewController: UIViewController {
+class CreateDataViewController: UIViewController ,UITextFieldDelegate{
     
     var realmService: RealmService!
     var hierarchy: String!
@@ -22,13 +22,17 @@ class CreateDataViewController: UIViewController {
     @IBOutlet var dataButton: UIButton!
     @IBOutlet var createButton: UIButton!
     @IBOutlet var inputTextField: UITextField!
+    @IBOutlet var objectLabel:UILabel!
+    @IBOutlet var dataLabel:UILabel!
+    @IBOutlet var objectText:UILabel!
+    @IBOutlet var dataText: UILabel!
     
     override func viewDidLoad() {
         realmService = RealmService.shared
         
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        inputTextField.delegate = self
+        //view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
     }
     
     @IBAction func backMainController(){
@@ -80,6 +84,10 @@ class CreateDataViewController: UIViewController {
         dataButton.isHidden = true
         createButton.isHidden = false
         inputTextField.isHidden = false
+        objectLabel.isHidden = true
+        dataLabel.isHidden = true
+        objectText.isHidden = true
+        dataText.isHidden = true
     }
     
     func back(){
@@ -91,6 +99,10 @@ class CreateDataViewController: UIViewController {
         parentVC.updateView()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
      // MARK: - Navigation
      

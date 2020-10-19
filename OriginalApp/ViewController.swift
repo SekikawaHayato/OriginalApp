@@ -24,13 +24,15 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     var mode: String!
     
     var parentDataType: String!
+    
+    @IBOutlet var hierarchyLabel: UILabel!
     // Index番号を保存しておく？
-    static var stackIndex: StackIndex!
+    var stackIndex: StackIndex!
     // 一旦一番最初に戻る実装にする
     static var isTop: Bool!
     
     @IBOutlet var table: UITableView!
-    @IBOutlet var modeImage: UIImageView!
+    @IBOutlet var modeImage: UIButton!
 
     
     override func viewDidLoad() {
@@ -45,7 +47,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         ViewController.isTop = true
         
         realmService = RealmService.shared
-        //ViewController.stackIndex = StackIndex.shared
+        stackIndex = StackIndex.shared
         
         if realmService.count(VariableDataGroup.self) == 0{
             let firstData = VariableDataGroup()
@@ -63,6 +65,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         showVariableDataGroup = realmService.resultGroup()
         
         mode = "Move"
+        hierarchyLabel.text = "Top"
         //realmService.deleteAll(VariableDataGroup.self)
     }
     
@@ -91,15 +94,29 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     @IBAction func changeModeButton(){
         if mode == "Write"{
             mode = "Move"
-            modeImage?.image = UIImage(named: "Idou.png")
+            modeImage?.setImage(UIImage(named: "IdouButton.png"), for: UIControl.State())
         } else{
             mode = "Write"
-            modeImage?.image = UIImage(named: "Hensyu.png")
+            modeImage?.setImage(UIImage(named: "HensyuButton.png"),for:UIControl.State())
         }
     }
     
     @IBAction func moveTopButton(){
-        ViewController.isTop = true
+        let index = stackIndex.pop()
+        if index == nil{
+            ViewController.isTop = true
+            hierarchyLabel.text = "Top"
+        }else{
+            if stackIndex.peek() == nil{
+                parentDataType = "Top"
+                hierarchyLabel.text = topParentObject.fileName
+                showVariableData = topParentObject.variableDataList
+            }else{
+            parentObject = stackIndex.peek()
+            showVariableData = parentObject.variableDataList
+            hierarchyLabel.text = parentObject.variableName
+            }
+        }
         updateView()
     }
     
@@ -145,8 +162,9 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectTableViewCell") as! ObjectTableViewCell
         if ViewController.isTop == true{
+
             cell.contentTextLabel.text = showVariableDataGroup[indexPath.row].fileName
-            cell.moldImageView.image = UIImage(named:"Object.png")
+            cell.moldImageView.image = UIImage(named:"File.png")
         }else{
             cell.contentTextLabel.text = showVariableData[indexPath.row].variableName
             if showVariableData[indexPath.row].mold == .OBJECT{
@@ -167,12 +185,15 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
                 parentDataType = "Top"
                 topParentObject = showVariableDataGroup[indexPath.row]
                 showVariableData = showVariableDataGroup[indexPath.row].variableDataList
+                hierarchyLabel.text = topParentObject.fileName
                 updateView()
             }else{
                 if showVariableData[indexPath.row].mold.rawValue == "OBJECT"{
                     parentDataType = "During"
                     parentObject = showVariableData[indexPath.row]
                     showVariableData = showVariableData[indexPath.row].variableDataList
+                    hierarchyLabel.text = parentObject.variableName
+                    stackIndex.push(parentObject)
                     updateView()
                 }else{
                     table.deselectRow(at: indexPath, animated: true)
